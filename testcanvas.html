@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Canvas Drawing</title>
+        <script src="./utils/mutualtypes.js"></script>
+        <script src="./utils/chips/R6502.js"></script>
+        <script src="./utils/chips/R2C02.js"></script>
+    </head>
+    <body>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                function getQueryParams() {
+                    const params = new URLSearchParams(window.location.search);
+                    const result = {};
+                    for (const [key, value] of params) {
+                        result[key] = value;
+                    }
+                    return result;
+                }
+                const queryParams = getQueryParams();
+                const contentDiv = document.body
+                if (queryParams.special === 'true') {
+                    // stuff
+                } else {
+                    // stuff
+                }
+
+                document.getElementById("assembly").value = `*=0x1000\nLDX 0x00\nINX\nCPX 0x0A\nBEQ 0xF8\nJMP 0x0002\n*=0xFFFC\n.byte 0x00, 0x10`
+            });
+        </script>
+        <canvas id="myCanvas" width="400" height="400" style="border:1px solid #000;"></canvas>
+        <textarea id="assembly" style="width:400px; height:396px;"></textarea>
+        <script src="./main.js"></script>
+    </body>
+</html>
